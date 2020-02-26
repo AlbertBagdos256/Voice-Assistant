@@ -1,0 +1,6 @@
+#--------------------------------------------------------------#
+Ask Time: What time is it now
+Ask System: open telegram,open Chrome... All commands located in Commands.py
+Ask Web: search for
+Ask Wiki: who is, what is,
+#--------------------------------------------------------------#
