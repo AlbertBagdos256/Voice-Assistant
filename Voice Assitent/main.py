@@ -19,6 +19,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
 
 
+
 #All Assistent'opportunities
 class Time():
     def __init__(self):
@@ -33,7 +34,6 @@ class Time():
 
 class System():
     def __init__(self):
-        #self.music_directory = 'C:/Users/LENOVO/Downloads/MUSIC'
         self.Chrome = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
         self.cmd = 'C:/Users/LENOVO/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/System Tools/cmd.exe'
         self.Telegram = "C:/Users/LENOVO/AppData/Roaming/Telegram Desktop/Telegram.exe"
@@ -81,12 +81,14 @@ class Web():
             webbrowser.open_new_tab('https://www.google.com/search?=&ei=&q='+ self.url +'&oq=')
 
 
+
 class WikiPedia():
     def __init__(self):
         self.Question = Answer
         self.Wiki_Request =  wikipedia.summary(self.Question, sentences=random.randint(2,4))
         self.New_list = list(str(self.Wiki_Request))
         self.count = 0
+        
     def Wiki_Search(self):
         self.engine = x3.init()
         for i in self.New_list:
@@ -97,10 +99,28 @@ class WikiPedia():
         print(self.Wiki_Request)
         self.engine.say(self.Wiki_Request)
     
-    
- 
-         
+
+class BoringStuff():
+    def __init__(self):
+        self.music_directory = 'C:/Users/LENOVO/Downloads/MUSIC/'
+        self.random_music_id = random.randint(1,14) 
+        self.command = Answer
+    def Joke(self):
+        self.engine = x3.init()
+        self.engine.say(random.choice(Phrases_after_Actions))
+        for i in Commands_Boring_Stuff:
+            if self.command.startswith('tell me a joke'):
+                self.joke = random.choice(Jokes)  
+                self.engine.say(self.joke)
+                self.command = ''
+                
+            if self.command.startswith(i):
+                self.music_directory = self.music_directory + str(self.random_music_id) + '.mp3'
+                os.startfile(self.music_directory)
+
+                     
 #First request
+
 def Greeting():
     engine = x3.init()
     engine.say('Hello, how can I help you, Sir?')
@@ -143,7 +163,10 @@ if __name__ == "__main__":
                     print(Answer)
                     wiki_1 = WikiPedia()
                     wiki_1.Wiki_Search()
-                    
+            for i in Commands_Boring_Stuff:
+                if Answer.startswith(i):
+                    bore_1 = BoringStuff()
+                    bore_1.Joke()        
             if Answer.startswith('search'):
                 web_1 = Web()
                 web_1.OpenUrl()     
