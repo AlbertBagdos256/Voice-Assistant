@@ -1,3 +1,7 @@
+#-------------------------#
+#Author: Albert Bagdasarov
+#Date 16.08.20
+#-------------------------#
 import os
 import time
 import pyttsx3 as x3
@@ -176,5 +180,4 @@ if __name__ == "__main__":
                 web_1 = Web()
                 web_1.OpenUrl()
              
-        check_Meanings() 
-    
+        check_Meanings()  
