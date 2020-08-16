@@ -2,7 +2,7 @@ import os
 import time
 import pyttsx3 as x3
 import speech_recognition as sr
-from Commands import *#
+from Commands import *
 import random
 import re
 import webbrowser
@@ -118,7 +118,9 @@ class BoringStuff():
                 self.music_directory = self.music_directory + str(self.random_music_id) + '.mp3'
                 os.startfile(self.music_directory)
 
-                     
+
+        
+                
 #First request
 
 def Greeting():
@@ -166,9 +168,13 @@ if __name__ == "__main__":
             for i in Commands_Boring_Stuff:
                 if Answer.startswith(i):
                     bore_1 = BoringStuff()
-                    bore_1.Joke()        
+                    bore_1.Joke()
+            for i in Commands_Detection_System:
+                if Answer.startswith(i):
+                    os.startfile("/Detec/l.py")     
             if Answer.startswith('search'):
                 web_1 = Web()
-                web_1.OpenUrl()     
+                web_1.OpenUrl()
+             
         check_Meanings() 
     
